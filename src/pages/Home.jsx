@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import Header from '../components/Header'
+import React, { lazy, Suspense, useEffect, useState } from 'react'
+// import Header from '../components/Header'
 import { HorizontalCard } from '../components/Card'
-import Hero from '../components/Hero'
+// import Hero from '../components/Hero'
 import Footer from '../components/Footer'
 import Card3 from '../components/Card3'
 import { useNewsContext } from '../context/NewsContext'
 import { Spinner } from "@material-tailwind/react";
-
+const Hero = lazy(() => import('../components/Hero'));
+const Header = lazy(() => import('../components/Header'));
 function Home() {
 
     // const { getTopNews, getTopTech, toptech, topNews, topBusiness, topWorld, getTopWorld, getTopBusiness } = useNewsContext();
@@ -101,7 +102,9 @@ function Home() {
 
     return (
         <>
-            <Header setactive={setactive} active={active} />
+            <Suspense fallback={<Spinner />}>
+                <Header setactive={setactive} active={active} />
+            </Suspense>
             {topNews ? <div className='px-1'>
                 <h1 className='font-serif text-center font-extrabold text-2xl sm:text-5xl mb-5 mt-3'>{topNews?.articles[0]?.title}</h1>
                 <div className='sm:flex  gap-1'>
@@ -142,7 +145,9 @@ function Home() {
                 }} className='bg-black px-2 py-2 text-white rounded'>Load Again</button>}
 
             </div>
-            <Hero topNews={topNews} topWorld={topWorld} />
+            <Suspense fallback={<Spinner />}>
+                <Hero topNews={topNews} topWorld={topWorld} />
+            </Suspense>
 
             <hr className='text-black   w-full mt-2 font-black' />
             <hr className='text-black w-full mt-1 font-black' />
