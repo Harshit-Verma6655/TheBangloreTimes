@@ -16,12 +16,45 @@ let arr = ["Home Page",
     "Headway",
     "Visual Investigations",
     "The Magazine"]
+
 let arr2 = [
     "Account",
     "Subscribe",
     "Manage My Account",
     "Home Delivery",
     "Gift Subscriptions"
+]
+let arr3 = [
+    "Books",
+    "Best Sellers Book List",
+    "Dance",
+    "Movies",
+    "Music",
+    "Pop Culture",
+    "Television",
+    "Theater",
+    "Visual Arts"
+]
+let arr4 = ["Health",
+    "Well",
+    "Food",
+    "Restaurant Reviews",
+    "Love",
+    "Travel",
+    "Style",
+    "Fashion",
+    "Real Estate",
+    "T Magazine"]
+let arr5 = [
+    "Today's Opinion",
+    "Columnists",
+    "Editorials",
+    "Guest Essays",
+    "Op-Docs",
+    "Letters",
+    "Sunday Opinion",
+    "Opinion Video",
+    "Opinion Audio"
 ]
 function Footer() {
     return (<>
@@ -35,37 +68,37 @@ function Footer() {
                             News</h1>
                         <ul>
                             {arr.map((item, index) => {
-                                return <li className='text-sm m-1 p-1' key={index}>{item}</li>
+                                return <li className='text-xs m-1 p-1' key={index}>{item}</li>
                             })}
                         </ul>
 
                     </div>
                     <div>
                         <h1 className='text-lg font-bold'>
-                            News</h1>
+                            ARTS</h1>
                         <ul>
-                            {arr.map((item, index) => {
-                                return <li className='text-sm m-1 p-1' key={index}>{item}</li>
+                            {arr3.map((item, index) => {
+                                return <li className='text-xs m-1 p-1' key={index}>{item}</li>
                             })}
                         </ul>
 
                     </div>
                     <div>
                         <h1 className='text-lg font-bold'>
-                            News</h1>
+                            Lifestyle</h1>
                         <ul>
-                            {arr.map((item, index) => {
-                                return <li className='text-sm m-1 p-1' key={index}>{item}</li>
+                            {arr4.map((item, index) => {
+                                return <li className='text-xs m-1 p-1' key={index}>{item}</li>
                             })}
                         </ul>
 
                     </div>
-                    <div>
+                    <div className='hidden sm:block'>
                         <h1 className='text-lg font-bold'>
-                            News</h1>
+                            OPINION</h1>
                         <ul>
-                            {arr.map((item, index) => {
-                                return <li className='text-sm m-1 p-1' key={index}>{item}</li>
+                            {arr5.map((item, index) => {
+                                return <li className='text-xs m-1 p-1' key={index}>{item}</li>
                             })}
                         </ul>
 
@@ -74,7 +107,7 @@ function Footer() {
                 <div>
                     <ul>
                         {arr2.map((item, index) => {
-                            return <li className='text-m font-black m-2 p-2' key={index}>{item}</li>
+                            return <li className='text-sm sm:text-lg font-black m-2 p-2' key={index}>{item}</li>
                         })}
                     </ul>
                 </div>

@@ -66,6 +66,14 @@ function ParticularNews() {
                 console.log(error);
             });
         }
+        else {
+            getTopNews({ country: active }).then((data) => {
+
+                setArr(data);
+            }).catch((error) => {
+                console.log(error);
+            });
+        }
     }, [active])
     return (
         <>

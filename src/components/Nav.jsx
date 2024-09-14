@@ -10,6 +10,8 @@ import {
 } from "@material-tailwind/react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { CursorArrowRaysIcon } from "@heroicons/react/24/solid";
+import { useNewsContext } from "../context/NewsContext";
+import { useNavigate } from "react-router-dom";
 
 const menuItems = [
 
@@ -138,6 +140,14 @@ const menuItems = [
 
 export function MenuCustomList() {
     const [openMenu, setOpenMenu] = React.useState(false);
+    const { setactive } = useNewsContext()
+    const navigate = useNavigate();
+    const handleWorld = (id) => {
+
+
+        setactive(id);
+        navigate(`/${id}`);
+    }
 
     return (
         <Menu open={openMenu} handler={setOpenMenu} allowHover>
@@ -160,7 +170,7 @@ export function MenuCustomList() {
                     {menuItems.map(({ title, id }) => (
                         <a href="#" key={title}>
                             <MenuItem>
-                                <Typography variant="h6" color="blue-gray" className="mb-1 font-serif">
+                                <Typography variant="h6" onClick={() => handleWorld(id)} color="blue-gray" className="mb-1 font-serif">
                                     {title}
                                 </Typography>
 

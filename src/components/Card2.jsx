@@ -8,7 +8,7 @@ function Card2({ obj }) {
         navigate("/news");
     }
     return (<>
-        <div onClick={handleClick} className='flex cursor-pointer  py-3 my-3 border-b border-gray-700'>
+        <div onClick={handleClick} className='items-center flex-col flex sm:flex-row cursor-pointer  py-3 my-3 border-b border-gray-700'>
             <div>
                 <h1 className='text-2xl text-gray-800 font-bold mb-3'>{obj?.title}</h1>
                 <h1 className=' text-gray-800 font-bold mb-3'>{obj?.description}</h1>

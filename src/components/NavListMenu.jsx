@@ -6,8 +6,8 @@ function NavListMenu({ active, setactive }) {
     const navigate = useNavigate();
 
     return (<>
-        <div className='flex mt-5 sticky top-0 rounded justify-center'>
-            <ul className='flex   gap-16 items-center font-serif '>
+        <div className='flex mt-8 sticky top-0 rounded justify-center'>
+            <ul className='sm:flex-row flex flex-col     sm:gap-16 gap-4 items-center font-serif '>
                 <li className={`${active == "Headlines" ? "border-b-4" : ""} border-gray-600 cursor-pointer p-2 rounded`} onClick={() => {
                     setactive("Headlines")
                     navigate("/")

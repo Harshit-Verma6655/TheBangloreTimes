@@ -25,15 +25,16 @@ function Home() {
 
 
     useEffect(() => {
-        getTopNews({}).then((data) => {
-            console.log("topNews", data);
-            setTopNews(data);
-        });
+        getNation().then((data) => {
+            setTopNation(data);
+        })
         setTimeout(() => {
-            getNation().then((data) => {
-                setTopNation(data);
-            })
-        }, 5000)
+
+            getTopNews({}).then((data) => {
+                console.log("topNews", data);
+                setTopNews(data);
+            });
+        }, 1000)
 
 
     }, [])
@@ -97,10 +98,10 @@ function Home() {
         <>
             <Header setactive={setactive} active={active} />
             {topNews ? <div className='px-1'>
-                <h1 className='font-serif text-center font-extrabold text-5xl mb-5 mt-3'>{topNews?.articles[0]?.title}</h1>
-                <div className='flex gap-1'>
+                <h1 className='font-serif text-center font-extrabold text-2xl sm:text-5xl mb-5 mt-3'>{topNews?.articles[0]?.title}</h1>
+                <div className='sm:flex  gap-1'>
                     <div className=' text-left'>
-                        <h1 className='font-black text-3xl mb-3'>{topNews?.articles[0]?.description}</h1>
+                        <h1 className='font-black sm:text-3xl text-lg mb-3'>{topNews?.articles[0]?.description}</h1>
                         <p>{topNews?.articles[0]?.content}</p>
                         <div className='my-2 flex gap-3 text-gray-800 font-semibold'>
                             <p>Date-{topNews?.articles[0].publishedAt.split('T')[0]}</p>
@@ -109,12 +110,12 @@ function Home() {
 
                     </div>
                     <div className='flex-2 mr-3 text-right border-r p-2 border-gray-600'>
-                        <img width={2000} src={topNews?.articles[0]?.image} />
+                        <img className='w-[2000px]' src={topNews?.articles[0]?.image} />
 
 
 
                     </div>
-                    <div className='w-[600px]'>
+                    <div className='sm:w-[600px]'>
                         <p>Source:-<br />
                             {topNews?.articles[0]?.source.name}<br />
                             https://www.theage.com.au
@@ -126,7 +127,7 @@ function Home() {
                 </div>
             </div> : <Spinner />}
             <div className='scroll_hide border-t border-b mb-3 gap-2 overflow-x-scroll flex p-5 border-gray-600'>
-                {topNation?.articles.map((obj, index) => {
+                {topNation?.articles?.map((obj, index) => {
 
                     return (<HorizontalCard key={index} obj={obj} />)
 

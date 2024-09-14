@@ -14,13 +14,17 @@ function App() {
 
   return (
     <>
-      <Routes>
+      <div className='w-full sm:flex justify-center'>
+        <div className='max-w-[1200px]'>
+          <Routes>
 
-        <Route path='/' element={<Home />} />
-        <Route path='/news' element={<News />} />
-        <Route path='/:category' element={<ParticularNews />} />
+            <Route path='/' element={<Home />} />
+            <Route path='/news' element={<News />} />
+            <Route path='/:category' element={<ParticularNews />} />
 
-      </Routes>
+          </Routes>
+        </div>
+      </div>
 
 
     </>
