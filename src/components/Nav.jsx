@@ -164,7 +164,7 @@ export function MenuCustomList() {
                     />
                 </Button>
             </MenuHandler>
-            <MenuList className="flex flex-wrap w-[46rem] h-80 border-none   grid-cols-1 gap-4  lg:grid">
+            <MenuList className="flex flex-wrap sm:w-[46rem] h-80 border-none   grid-cols-1 gap-4  lg:grid">
 
                 <ul className="col-span-4 flex w-full flex-wrap text-wrap   gap-1">
                     {menuItems.map(({ title, id }) => (
