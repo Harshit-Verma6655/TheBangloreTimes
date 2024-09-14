@@ -44,12 +44,12 @@ function Home() {
 
     }, [])
     useEffect(() => {
-        setTimeout(() => {
-            getTopWorld({}).then((data) => {
-                setTopWorld(data);
-                console.log("world data", data);
-            });
-        }, 2000)
+
+        getTopWorld({}).then((data) => {
+            setTopWorld(data);
+            console.log("world data", data);
+        });
+
 
 
     }, [])

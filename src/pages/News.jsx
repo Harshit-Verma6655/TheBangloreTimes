@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import { useParams } from 'react-router-dom'
 import { Spinner } from '@material-tailwind/react';
+import { useNewsContext } from '../context/NewsContext';
 
 function News() {
     const [obj, setObj] = useState(null);
-
+    const { setactive, active } = useNewsContext();
     useEffect(() => {
         const obj = JSON.parse(localStorage.getItem('obj'));
         setObj(obj);
@@ -16,7 +17,7 @@ function News() {
 
     return (
         <>
-            <Header />
+            <Header setactive={setactive} active={active} />
             {obj ? <div className='bg-gray-100'>
                 <div className='sm:w-full  sm:flex sm:justify-center'>
                     <div className='flex text-wrap flex-col p-5 bg-white items-center w-full sm:w-[55%]'>
