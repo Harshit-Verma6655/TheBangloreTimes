@@ -84,6 +84,7 @@ function NewsContext({ children }) {
         const response = await axios.post("https://server-9lh1.onrender.com/api/getNews",
             { ...params, category: "nation" }
         )
+        console.log(response.data);
         return response.data;
 
     }

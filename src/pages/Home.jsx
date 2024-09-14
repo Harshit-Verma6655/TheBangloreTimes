@@ -22,12 +22,17 @@ function Home() {
     const [sports, setsports] = useState(null);
     const [health, sethealth] = useState(null);
     const [nation, setnation] = useState(null);
+    const [nationLoad, setNationLoad] = useState(null);
 
 
     useEffect(() => {
+        console.log("runned");
         getNation().then((data) => {
+            console.log(data);
             setTopNation(data);
         })
+    }, [nationLoad])
+    useEffect(() => {
         setTimeout(() => {
 
             getTopNews({}).then((data) => {
@@ -44,7 +49,7 @@ function Home() {
                 setTopWorld(data);
                 console.log("world data", data);
             });
-        }, 10000)
+        }, 2000)
 
 
     }, [])
@@ -127,11 +132,14 @@ function Home() {
                 </div>
             </div> : <Spinner />}
             <div className='scroll_hide border-t border-b mb-3 gap-2 overflow-x-scroll flex p-5 border-gray-600'>
-                {topNation?.articles?.map((obj, index) => {
+                {topNation ? topNation?.articles?.map((obj, index) => {
 
                     return (<HorizontalCard key={index} obj={obj} />)
 
-                })}
+                }) : <button onClick={() => {
+                    console.log(nationLoad);
+                    setNationLoad(!nationLoad)
+                }} className='bg-black px-2 py-2 text-white rounded'>Load Again</button>}
 
             </div>
             <Hero topNews={topNews} topWorld={topWorld} />
