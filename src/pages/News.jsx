@@ -26,7 +26,7 @@ function News() {
 
 
                         <p className='sm:text-lg  mb-4font-serif'>{obj.content}</p>
-                        <h2 className='my-3  font-semibold w-full text-wrap  text-gray-700'><a href={obj.url}>See full article:-{obj.url}</a></h2>
+                        <h2 className='my-3  font-semibold w-full text-xs sm:text-sm text-wrap  text-gray-700'><a href={obj.url}>See full article:-{obj.url}</a></h2>
                         <div className='flex bg-white sm:w-full flex-col items-start font-semibold text-gray-600 py-5'>
                             <div>Source-</div>
                             <p>name: Yahoo Canada Finance</p>
